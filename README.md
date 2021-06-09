@@ -1,2 +1,2 @@
-# Algorithm
+# Learn Python
  algorithm by python
