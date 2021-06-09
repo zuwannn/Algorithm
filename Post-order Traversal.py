@@ -35,14 +35,25 @@ class Node:
     def PrintTree(self):
         if self.left:
             self.left.PrintTree()
-        print(self.data)
+        print(self.data),
         if self.right:
             self.right.PrintTree()
     
-
-# use insert method to add nodes
-root = Node(10)
-root.insert(6)
+    #In-order traversal
+    #left -> right -> root
+    def postorderTraversal(self, root):
+        res = []
+        if root:
+            res = self.postorderTraversal(root.left)
+            res = res + self.postorderTraversal(root.right)
+            res.append(root.data)
+        return res
+        
+root = Node(27)
 root.insert(14)
-root.insert(3)
-root.PrintTree()
+root.insert(35)
+root.insert(10)
+root.insert(19)
+root.insert(31)
+root.insert(42)
+print(root.postorderTraversal(root))

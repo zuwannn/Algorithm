@@ -1,11 +1,3 @@
-#Binary Tree
-"""
-Tree represents the nodes connected by edges(Left Node & Right Node). It is a non-linear data structure.
--One node is marked as Root node.
--Every node other than the root is associated with one parent node.
--Each node can have an arbiatry number of chid node.
-We designate one node as root node and then add more nodes as child nodes.
-"""
 
 class Node:
     #create Root
@@ -35,14 +27,25 @@ class Node:
     def PrintTree(self):
         if self.left:
             self.left.PrintTree()
-        print(self.data)
+        print(self.data),
         if self.right:
             self.right.PrintTree()
     
-
-# use insert method to add nodes
-root = Node(10)
-root.insert(6)
+    #In-order traversal
+    #left -> root -> right
+    def inorderTraversal(self, root):
+        res = []
+        if root:
+            res = self.inorderTraversal(root.left)
+            res.append(root.data)
+            res = res + self.inorderTraversal(root.right)
+        return res
+        
+root = Node(27)
 root.insert(14)
-root.insert(3)
-root.PrintTree()
+root.insert(35)
+root.insert(10)
+root.insert(19)
+root.insert(31)
+root.insert(42)
+print(root.inorderTraversal(root))
