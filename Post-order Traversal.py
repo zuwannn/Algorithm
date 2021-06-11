@@ -1,11 +1,4 @@
-#Binary Tree
-"""
-Tree represents the nodes connected by edges(Left Node & Right Node). It is a non-linear data structure.
--One node is marked as Root node.
--Every node other than the root is associated with one parent node.
--Each node can have an arbiatry number of chid node.
-We designate one node as root node and then add more nodes as child nodes.
-"""
+#post-order traversal
 
 class Node:
     #create Root

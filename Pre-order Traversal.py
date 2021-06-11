@@ -1,3 +1,4 @@
+#pre-order traversal
 
 class Node:
     #create Root
