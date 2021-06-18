@@ -7,6 +7,7 @@ Tree represents the nodes connected by edges(Left Node & Right Node). It is a no
 We designate one node as root node and then add more nodes as child nodes.
 """
 
+# this function present inorder traversal
 class Node:
     #create Root
     def __init__(self, data):
