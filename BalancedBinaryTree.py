@@ -43,7 +43,7 @@ if __name__=="__main__":
     root.left = Node(2)
     root.right = Node(3)
     root.left.left = Node(4)
-    root.left.left.left = Node(5)
+    #root.left.left.left = Node(5)
 
     if isBalanced(root):
         print("the root is a balanced binary tree")
