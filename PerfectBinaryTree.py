@@ -37,8 +37,10 @@ def isPerfect(root, depth, level=0):
 if __name__=="__main__":
     root = None
     root = Node(1)
-    #root.left = Node(2)
-    #root.right = Node(3)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
 
     if (isPerfect(root, calculateTheDepth(root))):
         print("the tree is a perfect binary tree")
