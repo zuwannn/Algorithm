@@ -1,49 +1,48 @@
-#Binary Tree
-"""
-Tree represents the nodes connected by edges(Left Node & Right Node). It is a non-linear data structure.
--One node is marked as Root node.
--Every node other than the root is associated with one parent node.
--Each node can have an arbiatry number of chid node.
-We designate one node as root node and then add more nodes as child nodes.
-"""
+# binary tree
 
-# this function present inorder traversal
 class Node:
-    #create Root
-    def __init__(self, data):
+    def __init__(self, key):
         self.left = None
         self.right = None
-        self.data = data
+        self.value = key
 
-    #insert node
-    def insert(self, data):
-        #compare the new value with the parent
-        if self.data:
-            if data < self.data:
-                if self.left is None:
-                    self.left = Node(data)
-                else:
-                    self.left.insert(data)
-            elif data > self.data:
-                if self.right is None:
-                    self.right = Node(data)
-                else:
-                    self.right.insert(data)
-        else:
-            self.data = data
-
-    #print tree
-    def PrintTree(self):
+    # root -> left -> right
+    def PreOrder(self):
+        print(self.value, end=" ")
         if self.left:
-            self.left.PrintTree()
-        print(self.data,end=" ")
+            self.left.PreOrder()
         if self.right:
-            self.right.PrintTree()
-    
+            self.right.PreOrder()
 
-# use insert method to add nodes
-root = Node(10)
-root.insert(6)
-root.insert(14)
-root.insert(3)
-root.PrintTree()
+    # left -> root -> right
+    def InOrder(self):
+        if self.left:
+            self.left.InOrder()
+        print(self.value, end=" ")
+        if self.right:
+            self.right.InOrder()
+
+    # left -> right -> root
+    def PostOrder(self):
+        if self.left:
+            self.left.PostOrder()
+        if self.right:
+            self.right.PostOrder()
+        print(self.value, end=" ")
+
+
+if __name__ == "__main__":
+
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+
+    print("Pre order traversal: ", end="")
+    root.PreOrder()
+
+    print("\nIn order traversal: ", end="")
+    root.InOrder()
+
+    print("\nPost order traversal: ", end="")
+    root.PostOrder()
